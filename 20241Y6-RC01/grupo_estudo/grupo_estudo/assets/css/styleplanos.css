@@ -1,0 +1,309 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Work Sans";
+    line-height: 125%;
+}
+
+
+:root {
+    font-size: 16px;
+    --branco: #ffffff;
+    --verde: #74C69D;
+    --cinza: #212529;
+    --verde_escuro: #00420C;
+}
+
+.container-grid {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer"
+    ;
+}
+
+.header {
+    grid-area: header;
+    display: flex;
+    background-color: var(--verde_escuro);
+    flex-direction: column;
+    padding-top: 1.3rem;
+    padding-bottom: 1.5rem;
+}
+
+.topo-header {
+    display: flex;
+    justify-content: space-around;
+
+}
+
+#logo-tads {
+    display: flex;
+    align-items: center;
+}
+
+#lista-header {
+    align-content: center;
+}
+
+#logo-tads h1 {
+    color: var(--branco);
+    font-size: 2rem;
+    font-weight: 400;
+    padding-left: 1rem;
+}
+
+#lista-header ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+
+#lista-header a:hover {
+    background-color: #2f9e41;
+    color: var(--branco);
+
+}
+
+#lista-header a {
+    text-decoration: none;
+    color: var(--branco);
+    font-size: 1rem;
+    font-family: "Work Sans";
+    font-weight: 350;
+    font-style: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.label-menu,
+.checkbox,
+.menu {
+    display: none;
+}
+
+.main {
+    padding: 2rem 0;
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.texto-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.texto-main h3 {
+    letter-spacing: 5px;
+    font-size: 0.9375rem;
+}
+
+.texto-main h2 {
+    font-family: "Crimson Text", system-ui;
+    font-size: 2rem;
+}
+
+.texto-main>p {
+    font-weight: 400;
+}
+
+.cards-main {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    width: 300px;
+    background-color: white;
+}
+
+.cards>div {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    padding: 1rem 0;
+}
+
+.cards>div>h2 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+.cards>div>p {
+    color: grey;
+    margin: 0;
+}
+
+.cards p {
+    color: var(--cinza);
+    margin-bottom: 1rem;
+}
+
+.cards p:nth-child(3) {
+    color: grey;
+    padding-bottom: 1.5rem;
+}
+
+.cards span {
+    padding-right: 1rem;
+    color: var(--verde);
+}
+
+.cards button {
+    color: var(--branco);
+    font-size: 1rem;
+    align-self: center;
+    padding: 0.7rem 2rem;
+    border-radius: 5px;
+    background-color: var(--cinza);
+    border: none;
+    font-weight: 400;
+}
+
+.footer {
+    grid-area: footer;
+    background-color: var(--verde_escuro);
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem;
+}
+
+.footer>p {
+    color: var(--branco);
+    font-weight: 400;
+    font-size: 0.9375rem;
+}
+
+.footer>ul {
+    display: flex;
+    gap: 1rem;
+    list-style-type: none;
+}
+
+
+@media screen and (max-width: 375px) {
+
+    .container-grid {
+        display: grid;
+        grid-template-areas:
+            "header"
+            "main"
+            "footer"
+        ;
+        width: 100%;
+    }
+
+    html,
+    body {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        overflow-x: hidden;
+
+    }
+
+    #lista-header>ul {
+        display: none;
+    }
+
+    #logo-tads>h1 {
+        font-size: 1rem;
+    }
+
+    .texto-main {
+        align-items: center;
+        text-align: center;
+        line-height: 150%;
+    }
+
+    .menu {
+        display: block;
+        position: absolute;
+        top: 7rem;
+        left: 0;
+        text-align: center;
+        width: 100%;
+        height: 0;
+        z-index: 100;
+        background-size: cover;
+        background-color: var(--verde_escuro);
+        transition: 0.5s;
+        visibility: hidden;
+        overflow-y: hidden;
+    }
+
+    .checkbox:checked~.menu {
+        visibility: visible;
+        height: calc(300vh);
+        overflow-y: auto;
+    }
+
+    .menu a {
+        border-bottom: 0.2rem solid black;
+        font-size: 3rem;
+        text-decoration: none;
+        color: var(--branco);
+    }
+
+    .menu li {
+        padding: 1rem;
+    }
+
+    .label-menu {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--branco);
+        padding-block: 1rem;
+        cursor: pointer;
+    }
+
+    #hamburguer {
+        font-size: 3rem;
+    }
+
+
+    .footer {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .footer>ul>li>img {
+        width: 100%;
+    }
+
+    .footer>ul {
+        gap: 1rem;
+    }
+
+    .footer>p {
+        font-size: 1rem;
+        text-align: center;
+    }
+}
